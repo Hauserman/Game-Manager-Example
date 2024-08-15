@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameLogic : MonoBehaviour
@@ -13,6 +14,8 @@ public class GameLogic : MonoBehaviour
     private bool isNotEnded;
     public float negativeOffset = 1;
 
+    public AudioClip soundSpace;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,8 @@ public class GameLogic : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && isNotEnded)
         {
+            SoundManager.Instance.PlaySound(soundSpace);
+
             if (!isOn)
             {
                 //presiona Espacio sin haber iniciado el juego
